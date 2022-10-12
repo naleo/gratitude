@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gratitude<%= " | "+yield(:title) unless yield(:title).blank? %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <!-- BEGIN NAVBAR -->
+    <div class="navbar bg-base-300">
+      <div class="flex-1">
+        <a class="btn btn-ghost normal-case text-xl">Gratitude</a>
+      </div>
+      <div class="flex-none">
+        <ul class="menu menu-horizontal p-0">
+          <%= nav_link 'Home', root_path %>
+          <%= nav_link 'About', about_path %>
+        </ul>
+      </div>
+    </div>
+    <!-- END NAVBAR -->
+    <main class="mx-4 mt-4 flex flex-col">
+      <!-- ALERT FLASH MESSAGES -->
+      <div id="flash-messages">
+      <% flash.each do |name, msg| %>
+        <div class="alert <%= name == 'notice' ? 'alert-info' : 'alert-error'%> shadow-lg mb-2" data-controller="alert" data-alert-animation-class="transition duration-500 ease-in-out transform opacity-0">
+          <div>
+          <% if name == 'notice' %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <% else %>
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <% end %>
+          <span><%= msg %></span>
+          </div>
+          <div class="flex-none">
+            <button class="btn btn-sm btn-ghost" data-action="click->alert#close">Dismiss</button>
+          </div>
+        </div>
+      <% end %> 
+      </div>
+      <% if @show_title %>
+        <h1 class="font-bold text-4xl"> <%= yield(:title) %>
+      <% end %>
+      <!-- END FLASH MESSAGES -->
+      <%= yield %>
+    </main>
+  </body>
+</html>
