@@ -20,7 +20,7 @@ class GratitudeItemsController < ApplicationController
     end
   end
 
-  # POST /gratitude_items/:id
+  # GET /gratitude_items/:id
   def show; end
 
   # GET /gratitude_items/:id/edit
