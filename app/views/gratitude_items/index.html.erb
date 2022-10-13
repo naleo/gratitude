@@ -1,13 +1,7 @@
 <% title "Gratitudes" %>
 
 <% @gratitude_items.each do |gratitude_item| %>
-  <div id="<%= dom_id(gratitude_item) %>" class="card w-96 bg-secondary shadow-xl my-2">
-    <div class="card-body">
-        <h2 class="card-title"><%= gratitude_item.name %></h2>
-        <p><%= gratitude_item.details %></p>
-        <p><%= gratitude_item.date %></p>
-    </div>
-  </div>
+  <%= render gratitude_item %>
 <% end %>
 
 <p>
