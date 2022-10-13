@@ -20,6 +20,7 @@
       <div class="flex-none">
         <ul class="menu menu-horizontal p-0">
           <%= nav_link 'Home', root_path %>
+          <%= nav_link 'Gratitudes', gratitude_items_path %>
           <%= nav_link 'About', about_path %>
         </ul>
       </div>
@@ -45,7 +46,7 @@
       <% end %> 
       </div>
       <% if @show_title %>
-        <h1 class="font-bold text-4xl"> <%= yield(:title) %>
+        <h1 class="font-bold text-4xl"> <%= yield(:title) %></h1>
       <% end %>
       <!-- END FLASH MESSAGES -->
       <%= yield %>
