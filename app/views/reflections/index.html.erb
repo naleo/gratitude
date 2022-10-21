@@ -1,13 +1,6 @@
 <% title "Reflections for "+ @gratitude_item.name %>
 
-<% @gratitude_item.reflections.each do |reflection| %>
-  <div id="<%= dom_id(reflection) %>" class="card w-1/3 bg-secondary shadow-xl my-2">
-      <div class="card-body">
-          <h2 class="card-title"><%= reflection.body %></h2>
-          <p><%= reflection.reflection_date %></p>
-      </div>
-  </div>
-<% end %>
+<%= render @gratitude_item.reflections %>
 
 <p>
   <%= link_to "New Gratitude", new_gratitude_item_reflection_path(@gratitude_item), class: "btn btn_primary my-2" %>
