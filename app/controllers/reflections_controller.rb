@@ -35,9 +35,9 @@ class ReflectionsController < ApplicationController
   
   def destroy
     @reflection.destroy
-    redirect_to gratitude_item_reflection_path(@gratitude_item), alert: "Reflection Deleted."
+    redirect_to gratitude_item_reflections_path(@gratitude_item), alert: "Reflection Deleted."
   end
-  
+
   private
   
   def reflection_params
