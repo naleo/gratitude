@@ -11,6 +11,12 @@
   </div>
   <div class="form-control w-full max-w-xs">
     <label class="label">
+      <span class="label-text">Reflection Name:</span>
+    </label>
+    <%= form.text_field :title, class: "input input-bordered input-primary w-full max-w-xs", placeholder: "Type here"%>
+  </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
       <span class="label-text">Date:</span>
     </label>
   <%= form.date_field :reflection_date, value: Date.today, disabled: false, class: "input input-bordered input-primary w-full max-w-xs" %>

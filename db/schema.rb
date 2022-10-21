@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_192157) do
   end
 
   create_table "reflections", force: :cascade do |t|
+    t.string "title"
     t.text "body"
     t.date "reflection_date"
     t.integer "gratitude_item_id"

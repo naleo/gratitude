@@ -12,7 +12,7 @@ class ReflectionsController < ApplicationController
   def create
     @reflection = Reflection.new reflection_params
     if @gratitude_item.reflections << @reflection
-      redirect_to gratitude_item_reflection_path(@gratitude_item,@reflection), notice: "Reflection Created"
+      redirect_to gratitude_item_reflections_path(@gratitude_item), notice: "Reflection Created"
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class ReflectionsController < ApplicationController
   
   def update
     if @reflection.update reflection_params
-      redirect_to gratitude_item_reflection_path(@gratitude_item,@reflection), notice: "Reflection Updated."
+      redirect_to gratitude_item_reflections_path(@gratitude_item), notice: "Reflection Updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -41,7 +41,7 @@ class ReflectionsController < ApplicationController
   private
   
   def reflection_params
-    params.require(:reflection).permit(:body, :reflection_date)
+    params.require(:reflection).permit(:body, :reflection_date, :title)
   end
 
   def load_gratitude_item
