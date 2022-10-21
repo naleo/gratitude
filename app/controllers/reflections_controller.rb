@@ -5,6 +5,10 @@ class ReflectionsController < ApplicationController
   def index
   end
   
+  def new
+    @reflection = Reflection.new
+  end
+  
   private
   def load_gratitude_item
     @gratitude_item = GratitudeItem.find params[:gratitude_item_id]
