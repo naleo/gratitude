@@ -17,6 +17,7 @@ class ReflectionsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  
 
   def show
   end
@@ -24,6 +25,13 @@ class ReflectionsController < ApplicationController
   def edit
   end
   
+  def update
+    if @reflection.update reflection_params
+      redirect_to gratitude_item_reflection_path(@gratitude_item,@reflection), notice: "Reflection Updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
   
   private
   
