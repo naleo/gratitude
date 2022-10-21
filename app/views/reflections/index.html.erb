@@ -3,5 +3,6 @@
 <%= render @gratitude_item.reflections %>
 
 <p>
-  <%= link_to "New Gratitude", new_gratitude_item_reflection_path(@gratitude_item), class: "btn btn_primary my-2" %>
+  <%= link_to "New Reflection", new_gratitude_item_reflection_path(@gratitude_item), class: "btn btn_primary my-2" %>
+  <%= link_to "Back to Gratitude", gratitude_item_path(@gratitude_item), class: "btn btn_primary my-2" %>
 </p>

@@ -2,5 +2,6 @@
       <div class="card-body">
           <h2 class="card-title"><%= reflection.body %></h2>
           <p><%= reflection.reflection_date %></p>
+          <%= link_to_unless_current "Reflection",gratitude_item_reflection_path(@gratitude_item,reflection), class: "btn btn_primary my-2" %>
       </div>
   </div>
