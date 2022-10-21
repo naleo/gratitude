@@ -33,7 +33,7 @@ class ReflectionsController < ApplicationController
   end
 
   def load_reflection
-    @reflection = Reflection.find params[:id]
+    @reflection = @gratitude_item.reflections.find params[:id]
   end
 
 
