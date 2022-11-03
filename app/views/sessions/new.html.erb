@@ -1,0 +1,17 @@
+<%= form_with(url: sessions_path, method: :post) do |form| %>
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Email:</span>
+    </label>
+  <%= form.text_field :email, class: "input input-bordered input-primary w-full max-w-xs" %>
+  </div>
+
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Password:</span>
+    </label>
+  <%= form.password_field :password, class: "input input-bordered input-primary w-full max-w-xs" %>
+  </div>
+
+  <%= form.submit "Login", class: "btn btn-secondary mt-2"%>
+<% end %>

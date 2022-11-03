@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
   get "signup" => "users#new"
+  get "login" => "sessions#new"
   resources :users, except: [:index, :new]
+  resources :sessions, except: [:index,:edit,:update,:show,:new]
   resources :gratitude_items do
     resources :reflections
   end
