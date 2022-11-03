@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "signup" => "users#new"
+  resources :users, except: [:index, :new]
   resources :gratitude_items do
     resources :reflections
   end
