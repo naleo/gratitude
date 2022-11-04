@@ -16,13 +16,17 @@
     <div class="navbar bg-base-300">
       <div class="flex-1">
         <ul class="menu menu-horizontal p-0">
-          <%= nav_link 'Gratitude', gratitude_items_path %>
+          <%= nav_link 'Home', root_path %>
+          <% if current_user %>
+            <%= nav_link 'Gratitudes', gratitude_items_path %>
+          <% end %>
           <%= nav_link 'About', about_path %>
         </ul>
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal p-0">
-          <% if session[:user_id] %>
+          <% if current_user %>
+            <%= nav_link current_user.name, user_path(current_user) %>
             <%= nav_link 'Logout', logout_path %>
           <% else %>
             <%= nav_link 'Login', login_path %>

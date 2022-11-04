@@ -1,8 +1,9 @@
 class GratitudeItemsController < ApplicationController
+  before_action :authenticate
   before_action :load_gratitude_item, except: [:new, :index, :create]
   # GET /gratitude_items
   def index
-    @gratitude_items = GratitudeItem.all
+    @gratitude_items = current_user.gratitude_items
   end
 
   # GET /gratitude_items/new
@@ -12,7 +13,8 @@ class GratitudeItemsController < ApplicationController
 
   # POST /gratitude_items
   def create
-    @gratitude_item = GratitudeItem.new params.require(:gratitude_item).permit(:name,:date,:details)
+    @gratitude_item = GratitudeItem.new gratitude_item_params
+    @gratitude_item.user = current_user
     if @gratitude_item.save
       redirect_to gratitude_items_path, notice: "Gratitude Created."
     else
@@ -44,7 +46,7 @@ class GratitudeItemsController < ApplicationController
   private
 
   def load_gratitude_item
-    @gratitude_item = GratitudeItem.find params[:id]
+    @gratitude_item = current_user.gratitude_items.find params[:id]
   end
 
   def gratitude_item_params

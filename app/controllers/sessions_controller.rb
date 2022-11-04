@@ -1,19 +1,23 @@
 class SessionsController < ApplicationController
-  def new
-  end
-  
+  def new; end
+
   def create
     @user = User.where(email: params[:email]).first
     if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect_to root_path, notice: "Logged in"
+      login(@user)
+        page_to_redirect_to = session[:protected_page] ? session[:protected_page] : root_path
+        session[:protected_page] = nil
+        redirect_to page_to_redirect_to, notice: 'Logged in'
+      else
+        redirect_to root_path, notice: 'Logged in'
+      end
     else
-      redirect_to login_path, alert: "Invalid Email or Password"
+      redirect_to login_path, alert: 'Invalid Email or Password'
     end
   end
-  
+
   def destory
-    session[:user_id] = nil
-    redirect_to root_path, notice: "Logged out"
+    logout
+    redirect_to root_path, notice: 'Logged out'
   end
 end

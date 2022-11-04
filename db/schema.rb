@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_03_070255) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_04_085127) do
   create_table "gratitude_items", force: :cascade do |t|
     t.string "name"
     t.text "details"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "reflections", force: :cascade do |t|
