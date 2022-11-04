@@ -11,4 +11,9 @@ class SessionsController < ApplicationController
       redirect_to login_path, alert: "Invalid Email or Password"
     end
   end
+  
+  def destory
+    session[:user_id] = nil
+    redirect_to root_path, notice: "Logged out"
+  end
 end
