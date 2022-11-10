@@ -47,6 +47,10 @@ gem "bootsnap", require: false
 
 gem "erb-formatter"
 
+gem "omniauth-github"
+
+gem "omniauth-rails_csrf_protection"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
