@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
+  get '/auth/:provider/callback' => 'authentications#create'
   resources :users, except: [:index, :new]
   resources :sessions, except: [:index,:edit,:update,:show,:new,:destory]
   resources :gratitude_items do

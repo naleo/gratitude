@@ -23,6 +23,8 @@
     </label>
   <%= form.text_field :email, class: "input input-bordered input-primary w-full max-w-xs" %>
   </div>
+  
+  <% if @user.has_password? %>
 
   <div class="form-control w-full max-w-xs">
     <label class="label">
@@ -37,6 +39,9 @@
     </label>
   <%= form.password_field :password_confirmation, class: "input input-bordered input-primary w-full max-w-xs" %>
   </div>
+  
+  <% end %>
 
   <%= form.submit "Signup", class: "btn btn-secondary mt-2"%>
 <% end %>
+<%= button_to "Signup with Github", "/auth/github", class: "btn btn-secondary mt-2", data: { turbo: false } %>

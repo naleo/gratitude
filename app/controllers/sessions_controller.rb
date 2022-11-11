@@ -11,6 +11,8 @@ class SessionsController < ApplicationController
     else
       redirect_to login_path, alert: 'Invalid Email or Password'
     end
+  rescue BCrypt::Errors::InvalidHash
+    redirect_to login_path, alert: "Invalid password, did you signup with Github?"
   end
 
   def destroy
