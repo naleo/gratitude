@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  
+  attr_accessor :old_password
+  
   has_secure_password
   has_many :gratitude_items
 
