@@ -51,6 +51,8 @@ gem "omniauth-github"
 
 gem "omniauth-rails_csrf_protection"
 
+gem "mailgun-ruby"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

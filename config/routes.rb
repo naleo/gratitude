@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   resources :gratitude_items do
     resources :reflections
   end
+  resources :password_resets
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get 'about' => 'sites#about'
   # Defines the root path route ("/")
