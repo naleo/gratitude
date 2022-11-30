@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate, except: %i[new create]
-  before_action :load_current_user, except: %i[new create]
+  before_action :load_current_user, except: %i[new create show index]
+
+  def index
+    @users = User.all.reject { |u| u.id == current_user.id }
+  end
 
   def new
     if session[:user_hash]
@@ -28,7 +32,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @user = if current_user.id == params[:id].to_i
+              current_user
+            else
+              User.find_by_id(params[:id])
+            end
+  end
 
   def edit; end
 

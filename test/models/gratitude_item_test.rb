@@ -14,9 +14,9 @@ class GratitudeItemTest < ActiveSupport::TestCase
     refute gratitude_item.valid?
   end
 
-  test 'requires a title' do
+  test 'requires a name' do
     gratitude_item = FactoryBot.build :gratitude_item
-    gratitude_item.title = ''
+    gratitude_item.name = ''
 
     refute gratitude_item.valid?
   end
