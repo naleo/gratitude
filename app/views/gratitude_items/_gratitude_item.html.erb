@@ -3,5 +3,8 @@
         <h2 class="card-title"><%= link_to_unless_current gratitude_item.name, gratitude_item %></h2>
         <p><%= gratitude_item.details %></p>
         <p><%= gratitude_item.date %></p>
+        <% if gratitude_item.friend_id %>
+          <p>Friend - <%= User.find(gratitude_item.friend_id).name %></p>
+        <% end %>
     </div>
 </div>

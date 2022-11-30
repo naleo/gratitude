@@ -50,6 +50,6 @@ class GratitudeItemsController < ApplicationController
   end
 
   def gratitude_item_params
-    params.require(:gratitude_item).permit(:name,:date,:details)
+    params.require(:gratitude_item).permit(:name,:date,:details,:friend_id)
   end
 end

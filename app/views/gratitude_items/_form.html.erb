@@ -27,5 +27,11 @@
     </label>
   <%= form.text_area :details, placeholder: "Details", class: "textarea textarea-primary w-full max-w-xs" %>
   </div>
+  <div class="form-control w-full max-w-xs">
+    <label class="label">
+      <span class="label-text">Friend:</span>
+    </label>
+    <%= form.collection_select(:friend_id, User.find(current_user.friendships.map(&:friend_id)),:id, :name, {:include_blank => 'Choose a Friend'}, class: "select select-ghost select-primary w-full max-w-xs") %>
+  </div>
   <%= form.submit class: "btn btn-secondary mt-2"%>
 <% end %>
