@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is a simple Ruby on Rails application
 
-Things you may want to cover:
+It allows the user to record things they are grateful for, and in the future, come back to and be reminded of those things.
 
-* Ruby version
+![image](https://github.com/naleo/gratitude/assets/2079998/5e56e7fc-31ea-4247-ada2-bd877feb9fd7)
 
-* System dependencies
+Gratitudes also allows incorporates some API's, such as mailgun.  This setup allows emails to be sent to the user to reset their password when they have forgotten it
+![image](https://github.com/naleo/gratitude/assets/2079998/a6f48fbf-72d0-45ab-b86b-d3c4c964081d)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
